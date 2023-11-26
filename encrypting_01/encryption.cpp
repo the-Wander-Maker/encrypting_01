@@ -5,12 +5,12 @@
 
 
 
-StringIn::StringIn(std::istream& in, const bool ifreadable) : inputstream(in), readable(ifreadable) {
+EncryptionHandler::EncryptionHandler(std::istream& in, const bool ifreadable) : inputstream(in), readable(ifreadable) {
 
 }
 
 
-std::string StringIn::encrypt(const std::string& input) {
+std::string EncryptionHandler::encrypt(const std::string& input) {
 	std::string encoded;
 	for (const char input_chr : input) {
 		encoded.push_back(input_chr + 5);
@@ -19,7 +19,7 @@ std::string StringIn::encrypt(const std::string& input) {
 }
 
 
-void StringIn::encryption_process(){
+void EncryptionHandler::encryption_process(){
 	std::cout << "The encrypted text: " << std::endl;
 
 	for (const std::string& input_line : textinputs){
@@ -32,7 +32,7 @@ void StringIn::encryption_process(){
 }
 
 
-void StringIn::decryption_process(){
+void EncryptionHandler::decryption_process(){
 	std::cout << "The decrypted text: " << std::endl;
 
 	for (const std::string& input_line : encrypteddata){
@@ -49,7 +49,7 @@ void StringIn::decryption_process(){
 }
 
 
-void StringIn::inputtext(){
+void EncryptionHandler::inputtext(){
 	if (readable){
 		std::cout << "Enter the text you want to manage.\nPress /enter-key/ to enter the text.";
 		std::cout << "\nIf you have uploaded all the nodes, please press /enter-key/ again to begin the encryption process: " << std::endl;
@@ -64,7 +64,7 @@ void StringIn::inputtext(){
 }
 
 
-void StringIn::printToFile(std::ofstream& outStream){
+void EncryptionHandler::printToFile(std::ofstream& outStream){
 	for (std::string& line : encrypteddata) {
 		outStream << line;
 	}

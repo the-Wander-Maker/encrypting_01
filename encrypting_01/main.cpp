@@ -28,7 +28,7 @@ int main(){
 	std::cout << std::endl;
 
 	if (menupont == 'A' || menupont == 'a'){
-		StringIn encrypting01(std::cin,true);
+		EncryptionHandler encrypting01(std::cin,true);
 
 		encrypting01.inputtext();
 		encrypting01.encryption_process();
@@ -40,7 +40,7 @@ int main(){
 		if (!inputFile.is_open()) {
 			throw std::runtime_error("Error: input.txt file cannot be opened");
 		}
-		StringIn encrypting01(inputFile, false);
+		EncryptionHandler encrypting01(inputFile, false);
 
 		encrypting01.inputtext();
 		inputFile.close();
